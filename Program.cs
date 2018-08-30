@@ -58,11 +58,23 @@ namespace WizardNinjaSamurai
     {
         public new int intelligence = 125;
         public new int health = 125;
+        // public Wizard(string person, int str, int intel, int dex, int hp) : base(person, str, intel, dex, hp) {}
         public Wizard(string person) : base(person) {}
 
         public int Heal(Human user)
         {
             Console.WriteLine($"{name} is healing {user.name}");
+            Console.WriteLine($"Starting health: {user.health}");
+            int heal = intelligence/100;
+            user.health += heal;
+            Console.WriteLine($"{user.name} receives {heal} health and now has {user.health} health points.");
+            return (int)health;
+        }
+
+        public int Heal(Wizard user)
+        {
+            Console.WriteLine($"{name} is healing {user.name}");
+            Console.WriteLine($"Starting health: {user.health}");
             int heal = intelligence/100;
             user.health += heal;
             Console.WriteLine($"{user.name} receives {heal} health and now has {user.health} health points.");
